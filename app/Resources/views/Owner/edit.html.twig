@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% include 'navbar.html.twig' %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('homepage') }}">Home</a></li>
+            <li><a href="{{ path('owner') }}">Owner</a></li>
+            <li class="active">Edit Owner</li>
+        </ol>
+        {{ form_start(edit_form) }}
+        <div class="row">
+            <div class="col-xs-12">
+                {{ form_row(edit_form.ownerName) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                {{ form_row(edit_form.address) }}
+            </div>
+            <div class="col-xs-12 col-md-6">
+                {{ form_row(edit_form.neighborhood) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.phoneNumber) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.cpf) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.rg) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.birthDate) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.createdAt) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(edit_form.updatedAt) }}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 btn-group">
+                {{ form_widget(edit_form.submit) }}
+            </div>
+        </div>
+        {{ form_end(edit_form) }}
+    </div>
+{% endblock %}

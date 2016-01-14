@@ -1,0 +1,95 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% include 'navbar.html.twig' %}
+    <div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{{ path('homepage') }}">Home</a></li>
+        <li><a href="{{ path('owner') }}">Owner</a></li>
+        <li class="active">List</li>
+    </ol>
+    <div class="text-right">
+        <a href="{{ path('owner_new') }}" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-plus"></span> Create a new entry
+        </a>
+    </div>
+    <table class="table table-striped table-bordered" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ownername</th>
+                <th>Cpf</th>
+                <th>Phonenumber</th>
+                <th>Rg</th>
+                <th>Birthdate</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in pagination %}
+            <tr>
+                <td><a href="{{ path('owner_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.ownerName }}</td>
+                <td>{{ entity.cpf }}</td>
+                <td>{{ entity.phoneNumber }}</td>
+                <td>{{ entity.rg }}</td>
+                <td>{% if entity.birthDate %}{{ entity.birthDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">Actions</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('owner_edit', { 'id': entity.id }) }}">edit</a></li>
+                            <li><a href="#" class="showOwner" data-item-id="{{ entity.id }}" data-toggle="modal" data-target="#myModal">Show</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-4">{{ knp_pagination_render(pagination) }}</div>
+    </div>
+    <div id="modalShowOwner" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Show Owner</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function(){
+            $('.showOwner').click(function(){
+                var id = $(this).attr('data-item-id');
+                $('#modalShowOwner').modal({show:true});
+                
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    dataType: "html",
+                    url: Routing.generate('owner_show') + '/' + id,
+                    success: function(data){
+                        $('#modalShowOwner .modal-body').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

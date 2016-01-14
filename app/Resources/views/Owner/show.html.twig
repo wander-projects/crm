@@ -1,0 +1,62 @@
+{% block body -%}
+    <div class="container">
+        <table class="record_properties">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Ownername</th>
+                    <td>{{ entity.ownerName }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ entity.address }}</td>
+                </tr>
+                <tr>
+                    <th>Neighborhood</th>
+                    <td>{{ entity.neighborhood }}</td>
+                </tr>
+                <tr>
+                    <th>Cpf</th>
+                    <td>{{ entity.cpf }}</td>
+                </tr>
+                <tr>
+                    <th>Phonenumber</th>
+                    <td>{{ entity.phoneNumber }}</td>
+                </tr>
+                <tr>
+                    <th>Rg</th>
+                    <td>{{ entity.rg }}</td>
+                </tr>
+                <tr>
+                    <th>Birthdate</th>
+                    <td>{{ entity.birthDate|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Createdat</th>
+                    <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Updatedat</th>
+                    <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 pull-right">
+                <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-import" aria-hidden="true"></span> Export PDF
+                </button>
+                <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
+                </button>
+                <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send Mail
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

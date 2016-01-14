@@ -1,0 +1,52 @@
+security:
+
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        
+        our_db_provider:
+            entity:
+                class: AppBundle:User
+        
+        in_memory:
+            memory: ~
+
+    firewalls:
+        register:
+            pattern:   ^/register$
+            anonymous: ~
+        login_firewall:
+            pattern:   ^/login$
+            anonymous: ~
+        secured_area:
+            remember_me:
+                key:      "%secret%"
+                lifetime: 604800 
+                path:     /
+            pattern:    ^/
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                default_target_path: /
+                always_use_default_target_path: true
+                use_referer: true
+                target_path_parameter: redirect_url
+                failure_path: /login
+            logout:
+                path: /logout
+                target: /
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+
+    access_control:
+        - { path: ^/secured_area, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/secured_area, roles: ROLE_ADMIN }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: ROLE_ADMIN }

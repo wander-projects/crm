@@ -1,0 +1,20 @@
+owner:
+    resource: "@OwnerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    options:
+      expose: true
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+user_registration:
+    path: /register
+    defaults: { _controller: AppBundle:Account:register }
+    
+logout:
+    path: /logout
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

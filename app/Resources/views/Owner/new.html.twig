@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% include 'navbar.html.twig' %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="{{ path('homepage') }}">Home</a></li>
+            <li><a href="{{ path('owner') }}">Owner</a></li>
+            <li class="active">New Owner</li>
+        </ol>
+         {{ form_start(form) }}
+        <div class="row">
+            <div class="col-xs-12">
+                {{ form_row(form.ownerName) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                {{ form_row(form.address) }}
+            </div>
+            <div class="col-xs-12 col-md-6">
+                {{ form_row(form.neighborhood) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.phoneNumber) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.cpf) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.rg) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.birthDate) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.createdAt) }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{ form_row(form.updatedAt) }}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12">
+                {{ form_row(form.submit) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

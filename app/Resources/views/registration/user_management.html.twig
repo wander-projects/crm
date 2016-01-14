@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    
+    <div class="container">
+        <h3>Usuários</h3>
+        <form method="POST" id="form_filter" name="form_filter" class="form-inline" action="{{ path('user_management') }}">
+        <div class="form-group">
+            {{ form_row(form.username) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.email) }}
+        </div>
+        <div class="form-group">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-primary" id="btnFilter">Filtrar</button>
+        </div>
+    </form>
+    <br>
+    <table id="nationalization-table" class="table table-striped table-bordered" style="margin-top: 10px;">
+        <tr>
+            <th>Selecionar<input type="checkbox" id="selectAll" style="display:block;"></th>
+            <th>ID</th>            
+            <th>Username</th>
+            <th>E-mail</th>
+            <th>Situation</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="id" class="select" value="" ></td>
+            <td>01</td>            
+            <td>Admin</td>
+            <td>admin@admin.com</td>
+            <td>Ativo</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="id" class="select" value="" ></td>
+            <td>02</td>            
+            <td>Wanderlei</td>
+            <td>wanderlei@terra.com.br</td>
+            <td>Ativo</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    </div>
+{% endblock %}
