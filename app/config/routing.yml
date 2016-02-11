@@ -1,3 +1,10 @@
+tenant:
+    resource: "@TenantBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    options:
+      expose: true
+
 owner:
     resource: "@OwnerBundle/Controller/"
     type:     annotation

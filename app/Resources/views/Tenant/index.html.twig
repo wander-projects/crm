@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% include 'navbar.html.twig' %}
+    <div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{{ path('homepage') }}">Home</a></li>
+        <li><a href="{{ path('tenant') }}">Tenant</a></li>
+        <li class="active">List</li>
+    </ol>
+    <div class="row">
+    
+    </div>
+{% endblock %}
