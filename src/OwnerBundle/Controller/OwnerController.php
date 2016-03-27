@@ -36,7 +36,7 @@ class OwnerController extends Controller
         $pagination = $paginator->paginate(
             $entities,
             $request->query->getInt('page', 1),
-            2
+            3
         );
 
         return $this->render('Owner/index.html.twig', array('pagination' => $pagination));
