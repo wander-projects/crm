@@ -31,10 +31,52 @@ class Owner
     /**
      * @var string
      *
+     * @ORM\Column(name="email", type="string", length=70)
+     */
+    private $email;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="address", type="string", length=100)
      */
     private $address;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=10)
+     */
+    private $number;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="complement", type="string", length=30)
+     */
+    private $complement;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=100)
+     */
+    private $city;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=20)
+     */
+    private $state;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postcode", type="string", length=15)
+     */
+    private $postcode;
+    
     /**
      * @var string
      *
@@ -55,6 +97,13 @@ class Owner
      * @ORM\Column(name="phone_number", type="string", length=40)
      */
     private $phoneNumber;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cellphone", type="string", length=40)
+     */
+    private $cellphone;
 
     /**
      * @var string
@@ -62,6 +111,13 @@ class Owner
      * @ORM\Column(name="rg", type="string", length=15)
      */
     private $rg;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="gender", type="string", length=1)
+     */
+    private $gender;
 
     /**
      * @var \DateTime
@@ -118,6 +174,30 @@ class Owner
     {
         return $this->ownerName;
     }
+    
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return owner
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * Set address
@@ -143,6 +223,126 @@ class Owner
         return $this->address;
     }
 
+    /**
+     * Set number
+     *
+     * @param string $number
+     *
+     * @return owner
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNUmber()
+    {
+        return $this->number;
+    }
+    
+    /**
+     * Set complement
+     *
+     * @param string $complement
+     *
+     * @return owner
+     */
+    public function setComplement($complement)
+    {
+        $this->complement = $complement;
+
+        return $this;
+    }
+
+    /**
+     * Get complement
+     *
+     * @return string
+     */
+    public function getComplement()
+    {
+        return $this->complement;
+    }
+    
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return owner
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+    
+    /**
+     * Set state
+     *
+     * @param string $state
+     *
+     * @return owner
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+    
+    /**
+     * Set postcode
+     *
+     * @param string $postcode
+     *
+     * @return owner
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+
+        return $this;
+    }
+
+    /**
+     * Get postcode
+     *
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+    
     /**
      * Set neighborhood
      *
@@ -216,6 +416,30 @@ class Owner
     }
 
     /**
+     * Set cellphone
+     *
+     * @param string $cellphone
+     *
+     * @return owner
+     */
+    public function setCellphone($cellphone)
+    {
+        $this->cellphone = $cellphone;
+
+        return $this;
+    }
+
+    /**
+     * Get cellphone
+     *
+     * @return string
+     */
+    public function getCellphone()
+    {
+        return $this->cellphone;
+    }
+    
+    /**
      * Set rg
      *
      * @param string $rg
@@ -237,6 +461,30 @@ class Owner
     public function getRg()
     {
         return $this->rg;
+    }
+    
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     *
+     * @return owner
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
     }
 
     /**

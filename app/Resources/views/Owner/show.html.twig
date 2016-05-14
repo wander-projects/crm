@@ -1,62 +1,87 @@
 {% block body -%}
-    <div class="container">
-        <table class="record_properties">
-            <tbody>
-                <tr>
-                    <th>Id</th>
-                    <td>{{ entity.id }}</td>
-                </tr>
-                <tr>
-                    <th>Ownername</th>
-                    <td>{{ entity.ownerName }}</td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td>{{ entity.address }}</td>
-                </tr>
-                <tr>
-                    <th>Neighborhood</th>
-                    <td>{{ entity.neighborhood }}</td>
-                </tr>
-                <tr>
-                    <th>Cpf</th>
-                    <td>{{ entity.cpf }}</td>
-                </tr>
-                <tr>
-                    <th>Phonenumber</th>
-                    <td>{{ entity.phoneNumber }}</td>
-                </tr>
-                <tr>
-                    <th>Rg</th>
-                    <td>{{ entity.rg }}</td>
-                </tr>
-                <tr>
-                    <th>Birthdate</th>
-                    <td>{{ entity.birthDate|date('Y-m-d H:i:s') }}</td>
-                </tr>
-                <tr>
-                    <th>Createdat</th>
-                    <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
-                </tr>
-                <tr>
-                    <th>Updatedat</th>
-                    <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
+    <section class="invoice">
+        <!-- info row -->
+        <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+                <strong>Dados Pessoais</strong>
+                <address>
+                    <strong>Nome:</strong> {{ entity.ownerName }}<br>
+                    <strong>Telefone:</strong> {{ entity.phoneNumber }}<br>
+                    <strong>E-mail:</strong> info@almasaeedstudio.com<br>
+                    <strong>Nascimento:</strong> {{ entity.birthDate|date('Y-m-d') }}<br>
+                    <strong>CPF:</strong> {{ entity.cpf }}<br>
+                    <strong>RG:</strong> {{ entity.rg }}
+                </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+                <strong>Endereço</strong>
+                <address>
+                    <strong>Logradouro:</strong> {{ entity.address }}<br>
+                    <strong>Bairro:</strong> {{ entity.neighborhood }}<br>
+                    <strong>Cidade:</strong><br>
+                    <strong>Estado:</strong>
+                </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+                <b>Outras Informações</b><br>
+                <br>
+                <b>Quantidade de imóveis:</b> 3<br>
+                <b>Criado em:</b> {{ entity.createdAt|date('Y-m-d H:i:s') }}<br>
+                <b>Atualizado em:</b> {{ entity.updatedAt|date('Y-m-d H:i:s') }}
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+        <!-- Table row -->
         <div class="row">
-            <div class="col-xs-12 pull-right">
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-import" aria-hidden="true"></span> Export PDF
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send Mail
-                </button>
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Dormitórios</th>
+                            <th>Endereço</th>
+                            <th>Valor Aluguel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Casa</td>
+                            <td>4</td>
+                            <td>El snort testosterone trophy driving gloves handsome</td>
+                            <td>R$64.50</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Casa</td>
+                            <td>2</td>
+                            <td>El snort testosterone trophy driving gloves handsome</td>
+                            <td>R$64.50</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Apartamento</td>
+                            <td>2</td>
+                            <td>Wes Anderson umami biodiesel</td>
+                            <td>R$50.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+        <!-- this row will not appear when printing -->
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <button style="margin-right: 5px;" class="btn btn-default"><i class="fa fa-file-pdf-o"></i> Gerar PDF</button>
+                <a id="print" class="btn btn-default" target="_blank" href="#"><i class="fa fa-print"></i> Imprimir</a>
             </div>
         </div>
-    </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        
+    </script>
 {% endblock %}

@@ -2,54 +2,98 @@
 
 {% block body -%}
     {% include 'navbar.html.twig' %}
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="{{ path('homepage') }}">Home</a></li>
-            <li><a href="{{ path('owner') }}">Owner</a></li>
-            <li class="active">New Owner</li>
-        </ol>
-         {{ form_start(form) }}
-        <div class="row">
-            <div class="col-xs-12">
-                {{ form_row(form.ownerName) }}
+    {% include 'sidebar.html.twig' %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Proprietários
+                <small>Cadastrar novo</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="{{ path('owner') }}">Proprietários</a></li>
+                <li class="active">Cadastro</li>
+            </ol>
+        </section>
+        <section class="content">
+            {{ form_start(form) }}
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Dados pessoais</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            {{ form_row(form.ownerName) }}
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            {{ form_row(form.email) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.cpf) }}
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.rg) }}
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.gender) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.phoneNumber) }}
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.cellphone) }}
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.birthDate) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="box-header with-border">
+                    <h3 class="box-title">Endereço</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-2">
+                            {{ form_row(form.postcode) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            {{ form_row(form.address) }}
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            {{ form_row(form.number) }}
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            {{ form_row(form.complement) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            {{ form_row(form.neighborhood) }}
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            {{ form_row(form.city) }}
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            {{ form_row(form.state) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ form_row(form.submit) }}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                {{ form_row(form.address) }}
-            </div>
-            <div class="col-xs-12 col-md-6">
-                {{ form_row(form.neighborhood) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.phoneNumber) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.cpf) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.rg) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.birthDate) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.createdAt) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(form.updatedAt) }}
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs-12">
-                {{ form_row(form.submit) }}
-            </div>
-        </div>
-        {{ form_end(form) }}
+            {{ form_end(form) }}            
+        </section>
     </div>
 {% endblock %}

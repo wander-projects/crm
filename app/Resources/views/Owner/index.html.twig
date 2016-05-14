@@ -6,94 +6,63 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Owner
-                <small>List</small>
+                Proprietários
+                <small>Listar</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="{{ path('owner') }}">Owner</a></li>
-                <li class="active">List</li>
+                <li><a href="{{ path('owner') }}">Proprietários</a></li>
+                <li class="active">Listar</li>
             </ol>
         </section>
-        
-        <div class="row">
-            <div class="col-xs-6">
-                <a href="{{ path('owner_new') }}" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-plus"></span> Novo
-                </a>    
-            </div>
-            <div class="col-xs-6 text-right">
-                <input type="text" placeholder="Busca ..." class="nav-search-input" id="nav-search-input" autocomplete="off">
-            </div>
-        </div>
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <a href="{{ path('owner_new') }}" class="btn btn-success btn-sm">
+                                <span class="fa fa-file-o"></span> Novo
+                            </a>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="dataTables_wrapper form-inline dt-bootstrap">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div id="example1_length" class="dataTables_length">
-                                            <label>
-                                                Show
-                                                <select class="form-control input-sm" name="example1_length" aria-controls="example1">
-                                                    <option value="10">10</option>
-                                                    <option value="25">25</option>
-                                                    <option value="50">50</option>
-                                                    <option value="100">100</option>
-                                                </select>
-                                                entries
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div id="example1_filter" class="dataTables_filter">
-                                            <label>
-                                                Search:
-                                                <input class="form-control input-sm" type="search" placeholder="" aria-controls="example1">
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table id="example1" class="table table-bordered table-striped">
+                                        <table id="example1" class="table table-bordered table-striped" role="grid">
                                             <thead>
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th>Ownername</th>
-                                                    <th>Cpf</th>
-                                                    <th>Phonenumber</th>
-                                                    <th>Rg</th>
-                                                    <th>Birthdate</th>
-                                                    <th>Createdat</th>
-                                                    <th>Actions</th>
+                                                <tr role="row">
+                                                    <th class="sorting_asc">Id</th>
+                                                    <th class="sorting">Nome Proprietário</th>
+                                                    <th class="sorting">Cpf</th>
+                                                    <th class="sorting">Telefone</th>
+                                                    <th class="sorting">Rg</th>
+                                                    <th class="sorting">Nascimento</th>
+                                                    <th class="sorting">Criado em</th>
+                                                    <th>Ações</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            {% for entity in pagination %}
-                                                <tr>
+                                            {% for entity in entities %}
+                                                <tr role="row">
                                                     <td>{{ entity.id }}</td>
                                                     <td>{{ entity.ownerName }}</td>
                                                     <td>{{ entity.cpf }}</td>
                                                     <td>{{ entity.phoneNumber }}</td>
                                                     <td>{{ entity.rg }}</td>
-                                                    <td>{% if entity.birthDate %}{{ entity.birthDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                                    <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                                    <td>{% if entity.birthDate %}{{ entity.birthDate|date('Y-m-d') }}{% endif %}</td>
+                                                    <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d') }}{% endif %}</td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <button type="button" class="btn btn-primary">Actions</button>
-                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                                <span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <li><a href="{{ path('owner_edit', { 'id': entity.id }) }}">edit</a></li>
-                                                                <li><a href="#" class="showOwner" data-item-id="{{ entity.id }}" data-toggle="modal" data-target="#myModal">Show</a></li>
-                                                            </ul>
+                                                            <a data-toggle="tooltip" data-placement="top" title="Visualizar" href="#" data-item-id="{{ entity.id }}" data-toggle="modal" data-target="#myModal" class="btn btn-info showOwner">
+                                                                <span class="fa fa-eye"></span>
+                                                            </a>
+                                                            <a data-toggle="tooltip" data-placement="top" title="Editar" href="#" data-item-id="{{ entity.id }}" data-toggle="modal" data-target="#myModal" class="btn btn-primary editOwner">
+                                                                <span class="fa fa-edit"></span>
+                                                            </a>
+                                                            <a data-toggle="tooltip" data-placement="top" title="Excluir" href="{{ path('owner_delete', { 'id': entity.id }) }}" class="btn btn-danger">
+                                                                <span class="fa fa-trash"></span>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -102,32 +71,46 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>Id</th>
-                                                    <th>Ownername</th>
+                                                    <th>Nome Proprietário</th>
                                                     <th>Cpf</th>
-                                                    <th>Phonenumber</th>
+                                                    <th>Telefone</th>
                                                     <th>Rg</th>
-                                                    <th>Birthdate</th>
-                                                    <th>Createdat</th>
-                                                    <th>Actions</th>
+                                                    <th>Nascimento</th>
+                                                    <th>Criado em</th>
+                                                    <th>Ações</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
-                                        <div class="row">
-                                            <div class="col-md-4">{{ knp_pagination_render(pagination) }}</div>
-                                        </div>
-                                        <div id="modalShowOwner" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
+                                        <div id="modalShowOwner" class="modal fade" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-lg">
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Show Owner</h4>
+                                                        <h4 class="modal-title"> Dados Proprietário</h4>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>Some text in the modal.</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="modalEditOwner" class="modal fade" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-lg">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title"> Dados Proprietário</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Some text in the modal.</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,11 +128,45 @@
     {% block javascripts %}
         <script type="text/javascript">
             $(function () {
-                $("#example1").DataTable();
+                $('[data-toggle="tooltip"]').tooltip(); 
+                $('#example1').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'copyHtml5',
+                            text: '<i class="fa fa-files-o"></i>',
+                            titleAttr: 'Copiar'
+                        },
+                        {
+                            extend:    'excelHtml5',
+                            text:      '<i class="fa fa-file-excel-o"></i>',
+                            titleAttr: 'Excel'
+                        },
+                        {
+                            extend:    'csvHtml5',
+                            text:      '<i class="fa fa-file-text-o"></i>',
+                            titleAttr: 'CSV'
+                        },
+                        {
+                            extend:    'pdfHtml5',
+                            text:      '<i class="fa fa-file-pdf-o"></i>',
+                            titleAttr: 'PDF'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="fa fa-print"></i>',
+                            titleAttr: 'Imprimir',
+                            exportOptions: {
+                                modifier: {
+                                    page: 'current'
+                                }
+                            }
+                        }
+                    ]
+                });
                 
                 $('.showOwner').click(function () {
                     var id = $(this).attr('data-item-id');
-                    console.debug('teste id = '+id);
                     $('#modalShowOwner').modal({show: true});
 
                     $.ajax({
@@ -159,6 +176,22 @@
                         url: Routing.generate('owner_show') + '/' + id,
                         success: function (data) {
                             $('#modalShowOwner .modal-body').html(data);
+                        }
+                    });
+                });
+                
+                $('.editOwner').click(function () {
+                    var id = $(this).attr('data-item-id');
+                    console.debug('teste id = '+id);
+                    $('#modalEditOwner').modal({show: true});
+
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        dataType: "html",
+                        url: Routing.generate('owner_edit', { id: id }),
+                        success: function (data) {
+                            $('#modalEditOwner .modal-body').html(data);
                         }
                     });
                 });

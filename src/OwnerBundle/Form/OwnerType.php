@@ -16,59 +16,97 @@ class OwnerType extends AbstractType
     {
         $builder
             ->add('ownerName', 'text', array(
-                'label' => 'Nome Proprietário',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'label' => 'Nome',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('email', 'text', array(
+                'label' => 'E-mail',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('postcode', 'text', array(
+                'label' => 'CEP',
+                'attr' => array('class' => 'form-control input-sm'),
             ))
             ->add('address', 'text', array(
-                'label' => 'Endereço',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'label' => 'Rua',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('number', 'text', array(
+                'label' => 'Número',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('complement', 'text', array(
+                'label' => 'Complemento',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('city', 'text', array(
+                'label' => 'Cidade',
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('state', 'text', array(
+                'label' => 'Estado',
+                'attr' => array('class' => 'form-control input-sm'),
             ))
             ->add('neighborhood', 'text', array(
                 'label' => 'Bairro',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'attr' => array('class' => 'form-control input-sm'),
             ))
             ->add('cpf', 'text', array(
                 'label' => 'CPF',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'attr' => array('class' => 'form-control input-sm'),
             ))
             ->add('phoneNumber', 'text', array(
                 'label' => 'Telefone',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('cellphone', 'text', array(
+                'label' => 'Celular',
+                'attr' => array('class' => 'form-control input-sm'),
             ))
             ->add('rg', 'text', array(
                 'label' => 'RG',
-                'attr' => array('class' => 'form-control col-sm-4'),
+                'attr' => array('class' => 'form-control input-sm'),
+            ))
+            ->add('gender', 'choice', array(
+                'label' => 'Sexo',
+                'choices' => array(
+                'masculino' => 'Masculino',
+                'feminino' => 'Feminino'
+                ),
+                'multiple' => false,
+                'expanded' => true,
+                'required' => true,
             ))
             ->add('birthDate', 'date', array(
                 'label' => 'Data Nascimento',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
                 'attr' => array(
-                    'class' => 'form-control input-inline date-picker',
+                    'class' => 'form-control input-sm date-picker',
                     'data-provide' => 'datepicker',
                     'data-date-format' => 'dd-MM-yyyy'
                 ),
             ))
-            ->add('createdAt', 'date', array(
-                'label' => 'Criado Em',
-                'widget' => 'single_text',
-                'format' => 'dd-MM-yyyy',
-                'attr' => array(
-                    'class' => 'form-control input-inline date-picker',
-                    'data-provide' => 'datepicker',
-                    'data-date-format' => 'dd-MM-yyyy'
-                ),
-            ))
-            ->add('updatedAt', 'date', array(
-                'label' => 'Atualizado Em',
-                'widget' => 'single_text',
-                'format' => 'dd-MM-yyyy',
-                'attr' => array(
-                    'class' => 'form-control input-inline date-picker',
-                    'data-provide' => 'datepicker',
-                    'data-date-format' => 'dd-MM-yyyy'
-                ),
-            ))
+//            ->add('createdAt', 'date', array(
+//                'label' => 'Criado Em',
+//                'widget' => 'single_text',
+//                'format' => 'dd-MM-yyyy',
+//                'attr' => array(
+//                    'class' => 'form-control input-sm date-picker',
+//                    'data-provide' => 'datepicker',
+//                    'data-date-format' => 'dd-MM-yyyy'
+//                ),
+//            ))
+//            ->add('updatedAt', 'date', array(
+//                'label' => 'Atualizado Em',
+//                'widget' => 'single_text',
+//                'format' => 'dd-MM-yyyy',
+//                'attr' => array(
+//                    'class' => 'form-control input-sm date-picker',
+//                    'data-provide' => 'datepicker',
+//                    'data-date-format' => 'dd-MM-yyyy'
+//                ),
+//            ))
         ;
     }
     

@@ -1,55 +1,79 @@
-{% extends '::base.html.twig' %}
-
 {% block body -%}
-    {% include 'navbar.html.twig' %}
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="{{ path('homepage') }}">Home</a></li>
-            <li><a href="{{ path('owner') }}">Owner</a></li>
-            <li class="active">Edit Owner</li>
-        </ol>
-        {{ form_start(edit_form) }}
-        <div class="row">
-            <div class="col-xs-12">
-                {{ form_row(edit_form.ownerName) }}
+    <section class="content">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Select2</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-remove"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Minimal</label>
+                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <option selected="selected">Alabama</option>
+                                <option>Alaska</option>
+                                <option>California</option>
+                                <option>Delaware</option>
+                                <option>Tennessee</option>
+                                <option>Texas</option>
+                                <option>Washington</option>
+                            </select>
+                            <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                <span class="selection">
+                                    <span class="select2-selection select2-selection--single" aria-expanded="false" aria-haspopup="true" aria-autocomplete="list" role="combobox" tabindex="0" aria-labelledby="select2-sjxq-container">
+                                        <span id="select2-sjxq-container" class="select2-selection__rendered" title="Alabama">Alabama</span>
+                                        <span class="select2-selection__arrow" role="presentation">
+                                            <b role="presentation"></b>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="dropdown-wrapper" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Disabled</label>
+                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" disabled="" tabindex="-1" aria-hidden="true">
+                                <option selected="selected">Alabama</option>
+                                <option>Alaska</option>
+                                <option>California</option>
+                                <option>Delaware</option>
+                                <option>Tennessee</option>
+                                <option>Texas</option>
+                                <option>Washington</option>
+                            </select>
+                            <span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 100%;">
+                                <span class="selection">
+                                    <span class="select2-selection select2-selection--single" aria-expanded="false" aria-haspopup="true" aria-autocomplete="list" role="combobox" tabindex="-1" aria-labelledby="select2-nf9o-container">
+                                        <span id="select2-nf9o-container" class="select2-selection__rendered" title="Alabama">Alabama</span>
+                                        <span class="select2-selection__arrow" role="presentation">
+                                            <b role="presentation"></b>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="dropdown-wrapper" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                {{ form_row(edit_form.address) }}
-            </div>
-            <div class="col-xs-12 col-md-6">
-                {{ form_row(edit_form.neighborhood) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.phoneNumber) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.cpf) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.rg) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.birthDate) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.createdAt) }}
-            </div>
-            <div class="col-xs-12 col-md-4">
-                {{ form_row(edit_form.updatedAt) }}
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs-12 btn-group">
-                {{ form_widget(edit_form.submit) }}
-            </div>
-        </div>
-        {{ form_end(edit_form) }}
-    </div>
+    </section>
 {% endblock %}

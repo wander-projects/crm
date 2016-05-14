@@ -31,15 +31,15 @@ class OwnerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('OwnerBundle:Owner')->findAll();
-        
+        /*
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $entities,
             $request->query->getInt('page', 1),
-            3
+            6
         );
-
-        return $this->render('Owner/index.html.twig', array('pagination' => $pagination));
+        */
+        return $this->render('Owner/index.html.twig', array('entities' => $entities));
     }
     /**
      * Creates a new owner entity.
@@ -133,7 +133,6 @@ class OwnerController extends Controller
      * Displays a form to edit an existing owner entity.
      *
      * @Route("/{id}/edit", name="owner_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
