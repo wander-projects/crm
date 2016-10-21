@@ -77,6 +77,10 @@ class OwnerType extends AbstractType
                 'expanded' => true,
                 'required' => true,
             ))
+            ->add('observation', 'textarea', array(
+                'label' => 'Observação',
+                'attr' => array('class' => 'form-control input-sm','cols' => '150', 'rows' => '5'),
+            ))
             ->add('birthDate', 'date', array(
                 'label' => 'Data Nascimento',
                 'widget' => 'single_text',

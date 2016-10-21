@@ -165,7 +165,7 @@
                     ]
                 });
                 
-                $('.showOwner').click(function () {
+                $('.showOwner').on('click', function () {
                     var id = $(this).attr('data-item-id');
                     $('#modalShowOwner').modal({show: true});
 
@@ -180,7 +180,7 @@
                     });
                 });
                 
-                $('.editOwner').click(function () {
+                $('.editOwner').on('click', function () {
                     var id = $(this).attr('data-item-id');
                     console.debug('teste id = '+id);
                     $('#modalEditOwner').modal({show: true});

@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Owner
 {
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+    
     /**
      * @var integer
      *
@@ -140,7 +146,13 @@ class Owner
      */
     private $updatedAt;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $observation;
+    
     /**
      * Get id
      *
@@ -557,6 +569,44 @@ class Owner
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * Set observation
+     *
+     * @param string $observation
+     * 
+     * @return owner
+     */
+    public function setObservation($observation)
+    {
+        $this->observation = $observation;
+    
+        return $this;
+    }
+
+    /**
+     * Get observation
+     *
+     * @return string 
+     */
+    public function getObservation()
+    {
+        return $this->observation;
+    }
+    
+    public function prePersist()
+    {
+        $this->setCreatedAt(new \DateTime);
+    }
+
+    public function preUpdate()
+    {
+        if (!$this->getCreatedAt()) {
+            $this->setCreatedAt(new \DateTime);
+        }
+
+        $this->setUpdatedAt(new \DateTime);
     }
 }
 

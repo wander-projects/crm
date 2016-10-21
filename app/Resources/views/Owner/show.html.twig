@@ -5,19 +5,19 @@
             <div class="col-sm-4 invoice-col">
                 <strong>Dados Pessoais</strong>
                 <address>
-                    <strong>Nome:</strong> {{ entity.ownerName }}<br>
-                    <strong>Telefone:</strong> {{ entity.phoneNumber }}<br>
+                    <strong>Nome:</strong> {{ entities.ownerName }}<br>
+                    <strong>Telefone:</strong> {{ entities.phoneNumber }}<br>
                     <strong>E-mail:</strong> info@almasaeedstudio.com<br>
-                    <strong>Nascimento:</strong> {{ entity.birthDate|date('Y-m-d') }}<br>
-                    <strong>CPF:</strong> {{ entity.cpf }}<br>
-                    <strong>RG:</strong> {{ entity.rg }}
+                    <strong>Nascimento:</strong> {{ entities.birthDate|date('Y-m-d') }}<br>
+                    <strong>CPF:</strong> {{ entities.cpf }}<br>
+                    <strong>RG:</strong> {{ entities.rg }}
                 </address>
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
                 <strong>Endereço</strong>
                 <address>
-                    <strong>Logradouro:</strong> {{ entity.address }}<br>
-                    <strong>Bairro:</strong> {{ entity.neighborhood }}<br>
+                    <strong>Logradouro:</strong> {{ entities.address }}<br>
+                    <strong>Bairro:</strong> {{ entities.neighborhood }}<br>
                     <strong>Cidade:</strong><br>
                     <strong>Estado:</strong>
                 </address>
@@ -26,8 +26,8 @@
                 <b>Outras Informações</b><br>
                 <br>
                 <b>Quantidade de imóveis:</b> 3<br>
-                <b>Criado em:</b> {{ entity.createdAt|date('Y-m-d H:i:s') }}<br>
-                <b>Atualizado em:</b> {{ entity.updatedAt|date('Y-m-d H:i:s') }}
+                <b>Criado em:</b> {{ entities.createdAt|date('Y-m-d H:i:s') }}<br>
+                <b>Atualizado em:</b> {{ entities.updatedAt|date('Y-m-d H:i:s') }}
             </div><!-- /.col -->
         </div><!-- /.row -->
 

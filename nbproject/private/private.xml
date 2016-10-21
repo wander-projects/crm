@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/crm/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php</file>
             <file>file:/var/www/html/crm/src/OwnerBundle/Controller/OwnerController.php</file>
-            <file>file:/var/www/html/crm/app/Resources/views/Owner/show.html.twig</file>
-            <file>file:/var/www/html/crm/app/Resources/views/Owner/index.html.twig</file>
-            <file>file:/var/www/html/crm/app/Resources/views/Owner/edit.html.twig</file>
+            <file>file:/var/www/html/crm/web/app_dev.php</file>
             <file>file:/var/www/html/crm/src/OwnerBundle/Form/OwnerType.php</file>
-            <file>file:/var/www/html/crm/app/Resources/views/Owner/new.html.twig</file>
             <file>file:/var/www/html/crm/src/OwnerBundle/Entity/Owner.php</file>
         </group>
     </open-files>

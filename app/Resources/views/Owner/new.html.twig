@@ -84,6 +84,11 @@
                             {{ form_row(form.state) }}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{ form_row(form.observation) }}
+                        </div>
+                    </div>
                 </div>
                 <div class="box-footer">
                     <div class="row">
@@ -96,4 +101,14 @@
             {{ form_end(form) }}            
         </section>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function(){
+            $("#ownerbundle_owner_cpf").mask("999.999.999-99");
+            $("#ownerbundle_owner_phoneNumber").mask("(99) 9999-9999");
+            $("#ownerbundle_owner_cellphone").mask("(99) 99999-9999");
+            $("#ownerbundle_owner_postcode").mask("99999-999");
+        });
+    </script>
 {% endblock %}

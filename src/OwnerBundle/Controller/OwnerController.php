@@ -115,16 +115,16 @@ class OwnerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('OwnerBundle:Owner')->find($id);
+        $entities = $em->getRepository('OwnerBundle:Owner')->find($id);
 
-        if (!$entity) {
+        if (!$entities) {
             throw $this->createNotFoundException('Unable to find owner entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('Owner/show.html.twig', array(
-            'entity'      => $entity,
+            'entities'      => $entities,
             'delete_form' => $deleteForm->createView(),
         ));
     }
